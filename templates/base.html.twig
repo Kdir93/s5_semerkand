@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Language" content="tr">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>
+			{% block title %}Semerkand Distribution
+			{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"/>
+		<meta name="description" content="This is an example dashboard created using build-in elements and components.">
+		<meta name="msapplication-tap-highlight" content="no">
+		{% block stylesheets %}
+			<link href="/main.css" rel="stylesheet">
+			<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+		{% endblock %}
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="/js/dataTables.js"></script>
+
+	</head>
+	<body>
+		<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+			{% include 'includes/header.html.twig' %}
+			<div class="app-main">
+				{% include 'includes/sidebar.html.twig' %}
+				<div class="app-main__outer">
+					<div class="app-main__inner">
+						<div class="app-page-title">
+							<div class="page-title-wrapper">
+								{% include 'includes/page-header.html.twig' %}
+
+							</div>
+						</div>
+						{% block body %}{% endblock %}
+					</div>
+					{% include 'includes/footer.html.twig' %}
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="/assets/scripts/main.js"></script>
+	</body>
+</html>

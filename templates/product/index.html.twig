@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+{% block body %}
+
+	<table class="mb-0 table table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Elden_price</th>
+				<th>Posta_price</th>
+				<th>Vakif_price</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for product in products %}
+				<tr>
+					<td>{{ product.name }}</td>
+					<td>{{ product.productType.getName() }}</td>
+					<td>{{ product.eldenPrice }}</td>
+					<td>{{ product.postaPrice }}</td>
+					<td>{{ product.vakifPrice }}</td>
+					<td>
+						<a href="{{ path('app_product_edit', {'id': product.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_product_new') }}">Create new</a>
+{% endblock %}

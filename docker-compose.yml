@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+  database:
+    image: 'mariadb:10.3'
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: main
+    ports:
+      - '3308:3306'
+    volumes:
+      - data-db-dergi:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      PMA_HOST: "database"
+    ports:
+      - "8082:80"
+    depends_on:
+      - database
+    links:
+      - database
+  ###> symfony/mailer ###
+  # mailer:
+  #   image: schickling/mailcatcher
+  #   ports: [ 1025, 1080 ]
+  ###< symfony/mailer ###
+
+volumes:
+  data-db-dergi:

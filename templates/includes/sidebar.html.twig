@@ -1,0 +1,51 @@
+<div class="app-sidebar sidebar-shadow">
+	<div class="scrollbar-sidebar">
+		<div class="app-sidebar__inner">
+			<ul class="vertical-nav-menu">
+				<li>
+					<a href="{{ path("app_home") }}" class="mm-active">
+						<i class="metismenu-icon pe-7s-rocket"></i>
+						Anasayfa
+					</a>
+				</li>
+				{# {% if is_granted("ROLE_ADMIN") %} #}
+				<li class="app-sidebar__heading">Admin</li>
+				<li>
+					<a href="{{ path('app_product_index') }}">
+						<i class="metismenu-icon pe-7s-display2"></i>
+						Ürünler
+					</a>
+				</li>
+				<li>
+					<a href="{{ path('app_city_index') }}">
+						<i class="metismenu-icon pe-7s-display2"></i>
+						Şubeler
+					</a>
+				</li>
+				<li>
+					<a href="{{ path('app_user_index') }}">
+						<i class="metismenu-icon pe-7s-display2"></i>
+						Kullanıcılar
+					</a>
+				</li>
+				{# {% endif %} #}
+				<li class="app-sidebar__heading">İşlemler</li>
+				{#% if is_granted("ROLE_REGION") %#}
+				<li>
+					<a href="">
+						<i class="metismenu-icon pe-7s-display2"></i>
+						-----
+					</a>
+				</li>
+				{#% else %#}
+				<li>
+					<a href="">
+						<i class="metismenu-icon pe-7s-display2"></i>
+						-----
+					</a>
+				</li>
+				{#% endif %#}
+			</ul>
+		</div>
+	</div>
+</div>

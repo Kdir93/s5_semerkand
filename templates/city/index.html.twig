@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+{% block body %}
+	<table class="mb-0 table table-striped">
+		<thead>
+			<tr>
+				<th>Şube adı</th>
+				<th>Adres</th>
+				<th>Posta kodu</th>
+				<th>Şehir</th>
+				<th>Vasıflar</th>
+				<th>işlemler</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for city in cities %}
+				<tr>
+					<td>{{ city.name }}</td>
+					<td>{{ city.adress }}</td>
+					<td>{{ city.postalcode }}</td>
+					<td>{{ city.city }}</td>
+					<td>{{ city.vasiflar }}</td>
+					<td>
+						<a href="{{ path('app_city_edit', {'id': city.id}) }}">düzelt</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="7">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a href="{{ path('app_city_new') }}">Yeni şube</a>
+{% endblock %}
