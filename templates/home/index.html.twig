@@ -4,5 +4,58 @@
 	{{title}}
 {% endblock %}
 
-{% block body %}test
+{% block body %}
+	<h3>Matba dergiler</h3>
+	<div class="row">
+		{% for dergi in dergi_matba %}
+		<div class="col-lg-6 col-xl-2">
+			<div class="card mb-3 widget-content">
+				<div class="widget-content-wrapper">
+					<div class="widget-content-left">
+						<div class="widget-heading">{{ dergi.name }}</div>
+					</div>
+					<div class="widget-content-right">
+						<div class="widget-numbers text-success"><span>52</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+	<h3>Dijital dergiler</h3>
+	<div class="row">
+		{% for dergi in dergi_dijital %}
+			<div class="col-lg-6 col-xl-2">
+				<div class="card mb-3 widget-content">
+					<div class="widget-content-wrapper">
+						<div class="widget-content-left">
+							<div class="widget-heading">{{ dergi.name }}</div>
+						</div>
+						<div class="widget-content-right">
+							<div class="widget-numbers text-success"><span>52</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+	<h3>Uygulamalar</h3>
+	<div class="row">
+		{% for dergi in dergi_uygulama %}
+			<div class="col-lg-6 col-xl-3">
+				<div class="card mb-3 widget-content">
+					<div class="widget-content-wrapper">
+						<div class="widget-content-left">
+							<div class="widget-heading">{{ dergi.name }}</div>
+						</div>
+						<div class="widget-content-right">
+							<div class="widget-numbers text-success"><span>52</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

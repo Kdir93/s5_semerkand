@@ -49,9 +49,15 @@ class City
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Subscriber::class, mappedBy="sube")
+     */
+    private $subscribers;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->subscribers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +149,36 @@ class City
             // set the owning side to null (unless already changed)
             if ($user->getCity() === $this) {
                 $user->setCity(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Subscriber>
+     */
+    public function getSubscribers(): Collection
+    {
+        return $this->subscribers;
+    }
+
+    public function addSubscriber(Subscriber $subscriber): self
+    {
+        if (!$this->subscribers->contains($subscriber)) {
+            $this->subscribers[] = $subscriber;
+            $subscriber->setSube($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSubscriber(Subscriber $subscriber): self
+    {
+        if ($this->subscribers->removeElement($subscriber)) {
+            // set the owning side to null (unless already changed)
+            if ($subscriber->getSube() === $this) {
+                $subscriber->setSube(null);
             }
         }
 
