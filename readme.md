@@ -1,3 +1,3 @@
 # Dergi workflow
 
-(Dergi_workflow.png)
+![Le workflow](Dergi_workflow.png)
